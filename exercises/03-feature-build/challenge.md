@@ -1,7 +1,8 @@
 # Team Build Challenge
 
 **Time:** 75 minutes  
-**Mode:** Teams of 5, competing
+**Mode:** Teams of 5, competing  
+**No coding required — describe what you want in plain language**
 
 ## Choose Your Track
 
@@ -9,118 +10,102 @@ Each team picks ONE track. You have 75 minutes to build something and prepare a 
 
 ---
 
-## Track A: "Fix Our App" 🐛
+## Track A: "Build an App with Lovable" 🏗️
 
-### The Situation
+### How It Works
 
-You've inherited a Task Tracker API. It's buggy, missing features, and has no tests. Your job: make it better using your AI agent.
+1. Open Lovable in your browser (log in with your team account)
+2. Describe what you want to build in plain language
+3. Watch the app appear
+4. Iterate: describe changes you want
+5. Test it as a team
 
-### What's in the Workspace
+### Starter Ideas
 
-```
-/workspace/challenges/track-a/
-├── src/
-│   ├── index.js          # The main app (with bugs)
-│   └── __tests__/        # Partial test suite
-├── package.json
-└── BUGS.md               # Hint: there are 3 known bugs
-```
+| App Idea | Description |
+|---|---|
+| **Team Event Planner** | Vote on dates, activities, locations |
+| **Onboarding Checklist** | Track new hire progress, auto-assign tasks |
+| **Project Dashboard** | Status overview across teams |
+| **Who's Who Directory** | Searchable employee directory with fun descriptions |
+| **Meeting Agenda Builder** | Pull topics from calendar, create agenda |
+| **Idea Board** | Team members submit and vote on ideas |
 
-### Known Issues (for your agent to find)
-1. Null handling in the PUT endpoint
-2. Missing input validation
-3. No error handling middleware
+### Tips
 
-### Feature Requests
-1. Filter tasks by status: `GET /api/tasks?status=open`
-2. Add pagination: `GET /api/tasks?page=1&limit=10`
-
-### Your Mission
-
-Use the agent to:
-1. Find and fix at least 2 bugs
-2. Implement at least 1 feature
-3. Make sure the app still works
-4. Commit your changes
+- Start simple: "Build a page with a list and an add button"
+- Iterate: "Make the list into cards with icons"
+- Be specific: "The cards should have a title, description, and priority color"
+- Test as you go: "Click the buttons, fill in the forms"
+- Make it yours: "Use our company colors"
 
 ### Demo Requirements (3 minutes)
-- Show the bug before and after
-- Demo the new feature
-- Explain what the agent did well and where you had to guide it
+- Show what you built
+- Demo one key feature
+- Explain the problem it solves
+- What would you add next?
 
 ---
 
-## Track B: "Build a Workflow Agent" 🤖
+## Track B: "Design a Workflow Agent" 🤖
 
-### The Situation
+### How It Works
 
-Your department has a repetitive process that takes too long. Design an AI agent that automates it.
-
-### Example Workflows (pick one or invent your own)
-
-| Workflow | Description |
-|---|---|
-| **Meeting Prep Agent** | Reads calendar, gathers relevant docs, creates agenda, sends pre-read |
-| **Expense Report Assistant** | Reads receipts, categorizes expenses, fills the form, submits for approval |
-| **Onboarding Buddy** | New hire asks questions, agent answers from company docs, tracks progress |
-| **Customer Meeting Prep** | Reads CRM data, researches the customer, creates briefing doc |
-| **Weekly Report Generator** | Pulls data from multiple sources, writes the weekly status report |
-
-### Your Mission
-
-1. Pick a workflow (or invent your own)
-2. Describe it in detail to the agent
-3. Ask the agent to design the automation:
-   - What inputs does it need?
-   - What steps does it take?
-   - What does it produce?
-4. Create the prompts/templates/scripts the agent would use
+1. Pick a real work process that takes too long
+2. Describe it to your AI agent in detail
+3. Ask the agent to design the automation
+4. Create the prompts/templates the agent would use
 5. Test it with sample data
+
+### Starter Ideas
+
+| Agent | What It Does |
+|---|---|
+| **Meeting Prep Agent** | Reads calendar, gathers docs, creates agenda, sends pre-read |
+| **Expense Report Assistant** | Reads receipts, categorizes expenses, fills the form |
+| **Onboarding Buddy** | Answers new hire questions from company docs |
+| **Weekly Report Generator** | Pulls data from multiple sources, writes status report |
+| **Customer Meeting Prep** | Researches customer, creates briefing doc |
+
+### Tips
+
+- Be specific about the workflow: what goes in, what comes out
+- Ask the agent to explain its reasoning
+- Test with real-ish data (not perfect data)
+- Think about edge cases: "What if the receipt is unreadable?"
 
 ### Demo Requirements (3 minutes)
 - Describe the workflow you automated
 - Show the agent doing the work
-- Explain the time savings (estimate: "This used to take 2 hours, now it takes 5 minutes")
-- What would you need to make this production-ready?
+- Time savings estimate: "This used to take 2 hours, now 5 minutes"
+- What's needed to make it production-ready?
 
 ---
 
 ## Track C: "AI Solves Our Problem" 💡
 
-### The Situation
-
-Every department has problems that seem unsolvable. Use AI to research, design, and pitch a solution.
-
 ### How It Works
 
-1. **Identify a real problem** from your department (or make one up)
-   - Examples: "New hires take 3 months to become productive"
-   - "We spend 4 hours/week on status reports"
-   - "Customer onboarding has a 30% drop-off rate"
+1. Identify a real problem from your department
+2. Use the agent to research: how have others solved this?
+3. Design a solution concept
+4. Build a simple prototype in Lovable OR prepare a pitch
 
-2. **Use the agent to research:**
-   - How have other companies solved this?
-   - What tools exist?
-   - What are the best practices?
+### Starter Ideas
 
-3. **Design a solution concept:**
-   - What would the AI-powered solution look like?
-   - What would it cost?
-   - What's the ROI?
+| Problem | AI Solution Direction |
+|---|---|
+| "New hires take 3 months to ramp up" | AI-guided onboarding with personalized learning path |
+| "We spend 4 hours/week on status reports" | Automated data gathering + AI-written reports |
+| "Customer onboarding drops off 30%" | AI check-in agent that guides new customers |
+| "Too many unproductive meetings" | AI meeting optimizer: agenda, attendees, duration |
 
-4. **Prepare a pitch:**
-   - Problem statement (1 sentence)
-   - Proposed solution (2 sentences)
-   - Expected impact (numbers if possible)
-   - What you need to make it happen
+### Tips
 
-### Your Mission
-
-1. Brainstorm problems as a team (10 min)
-2. Pick the most interesting one (5 min)
-3. Research with the agent (25 min)
-4. Design the solution concept (20 min)
-5. Prepare the pitch (15 min)
+- Pick a problem everyone in the team can relate to
+- Use the agent to find real data and case studies
+- Make the business case: time saved, money saved, quality improved
+- Build a simple Lovable prototype if time allows
 
 ### Demo Requirements (3 minutes)
 - The problem (make us care)
@@ -143,11 +128,13 @@ Each team is scored on 4 criteria (1-5 points each):
 
 **Max score: 20 points**
 
+Special prize: 🚀 **Best "I Didn't Know AI Could Do That" Moment**
+
 ---
 
 ## Tips for Success
 
-1. **Divide roles early** — Driver, Navigator, Scribe, Validator, Presenter
+1. **Divide roles early** — Driver, Navigator, Domain Expert, Challenger, Presenter
 2. **Start simple** — Get one thing working before adding complexity
 3. **Talk to each other** — The non-laptop people are the most valuable: domain knowledge
 4. **Practice the demo** — 3 minutes goes fast. Rehearse at least once.

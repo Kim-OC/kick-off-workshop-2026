@@ -1,4 +1,4 @@
-# Exercise 1: Talk to Your First Agent
+# Exercise 1: Your First AI Agent
 
 **Time:** 60 minutes  
 **Mode:** Teams of 5, one laptop per team  
@@ -13,61 +13,84 @@ Everyone interacts with an AI agent for the first time. First "aha moment" — s
 - Team lead opens laptop and terminal
 - Team gathers around the screen
 - KiloClaw instance is pre-configured and ready
+- No coding needed — everything via plain language prompts
 
 ## Part A: Guided Interaction (20 min)
 
 The facilitator walks everyone through these commands on the big screen. Each team follows along on their laptop.
 
-### Command 1: Meet Your Agent
+### Prompt 1: Meet Your Agent
 
-```bash
+```
 kilo run --auto "Introduce yourself. What are you, and what can you help with?"
 ```
 
 *What happens:* The agent describes itself, its capabilities, and its tools.
 
-### Command 2: Analyze a Project
+### Prompt 2: Analyze Something
 
-```bash
-kilo run --auto "Read the files in the workspace and tell me:
-1. What is this project?
-2. What language is it written in?
-3. What does it do?"
+```
+kilo run --auto "Read the files in the workspace and tell me: what is in here?"
 ```
 
-*What happens:* The agent reads files, understands the code, and summarizes.
+*What happens:* The agent reads files, understands the content, and summarizes.
 
-### Command 3: Find Bugs
+### Prompt 3: Find Issues
 
-```bash
-kilo run --auto "Find all bugs and issues in this project. Rank them by severity."
+```
+kilo run --auto "Look at everything in the workspace. Find any problems, issues, or things that could be improved."
 ```
 
-*What happens:* The agent finds the intentional bugs (and maybe some you didn't intend!).
+*What happens:* The agent analyzes content and finds problems — just like a smart colleague would.
 
-## Part B: Team Mystery Challenge (25 min)
+## Part B: Team Mystery Investigation (25 min)
 
-Each team gets a **mystery project** to investigate. The project is already loaded in the workspace.
+Each team gets a **mystery scenario** loaded in their workspace. The scenario is a description of a real situation — an app, a workflow, or a data set — with hidden problems.
 
-**Instructions for the team:**
-1. Decide together what you want to know about this project
-2. Ask the agent questions — at least 3 different queries
-3. Discuss: Do you agree with the agent's findings? What did it miss?
-4. Pick one issue and ask the agent to fix it
+**The team's job:**
+1. Read the mystery scenario description
+2. Ask the agent to analyze it
+3. Ask follow-up questions based on what it finds
+4. Debate: Do we agree with the agent's findings?
+5. Ask the agent to suggest solutions
 
-**Suggested prompts:**
-- "What's the most concerning thing about this code?"
-- "If you were hired to improve this project, what would you do first?"
-- "Explain this codebase like I'm a project manager with no coding experience"
-- "What security issues do you see?"
-- "Write a README for this project"
+### Mystery 1: "The Bug Hunt"
 
-**Team roles (rotate):**
-- **Driver** — Types commands into the terminal
-- **Navigator** — Decides what to ask next
-- **Scribe** — Notes interesting findings
-- **Validator** — Checks if the agent's output makes sense
-- **Presenter** — Will share findings with the group
+> *"This is a customer feedback form app. Customers fill in their experience rating (1-5 stars), leave a comment, and submit. The data goes to a spreadsheet."*
+
+**Hidden issues the agent should find:**
+- No validation — empty submissions accepted
+- No duplicate detection — same person can spam
+- Star rating stored as text — can't calculate average
+- No confirmation after submission
+
+### Mystery 2: "The Workflow Detective"
+
+> *"Every month, the finance team collects expense reports from 50 employees. They check each receipt, categorize it, enter it into the system, flag anomalies, and produce a summary report. The process takes 3 days."*
+
+**Hidden inefficiencies the agent should find:**
+- Receipt photos could be processed by AI (OCR + auto-categorization)
+- Anomaly detection could be automated
+- Summary report could be generated automatically
+- Employee submission could be a simple app
+
+### Mystery 3: "The Data Puzzle"
+
+> *"Here are support ticket numbers for the last 6 months, categorized by type. Find patterns and suggest improvements."*
+
+**Patterns the agent should find:**
+- Certain ticket types spike after product releases
+- Resolution time correlates with ticket category
+- Self-service could reduce certain categories
+
+**Team roles:**
+| Role | Who | What they do |
+|---|---|---|
+| Driver | Anyone | Types prompts into the terminal |
+| Navigator | Anyone | Decides what to ask next |
+| Domain Expert | PM/Finance/HR | Validates findings against real-world knowledge |
+| Challenger | Anyone | Questions the agent's conclusions |
+| Presenter | Anyone | Prepares to share findings |
 
 ## Part C: Group Share (15 min)
 
@@ -78,4 +101,4 @@ The facilitator calls on 2-3 teams:
 
 ## Key Takeaway
 
-> The agent didn't just autocomplete — it *read*, *understood*, *analyzed*, and *acted*. That's the difference between a chatbot and an agent.
+> The agent didn't just autocomplete — it *read*, *understood*, *analyzed*, and *suggested*. That's the difference between a chatbot and an agent.
