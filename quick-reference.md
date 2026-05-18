@@ -1,43 +1,37 @@
-# Quick Reference Card — Kilo CLI
+# Quick Reference Card — Ida Infront AI Workshop 2026
 
-## Starting the Agent
+## Your KiloClaw Instance
+
+- **URL:** Provided by facilitator
+- **Token:** Provided by facilitator
+- **CLI:** `kilo` (pre-configured on team lead's laptop)
+
+## Essential Commands
 
 ```bash
-# Interactive chat mode
+# Start interactive chat
 kilo
 
-# One-shot autonomous task
-kilo run --auto "describe your task"
-```
+# One-shot task (agent works autonomously)
+kilo run --auto "your task here"
 
-## Useful Commands
-
-```bash
-# Ask the agent to read/analyze files
-kilo run --auto "Read src/app.js and explain what it does"
-
-# Ask the agent to write/modify code
-kilo run --auto "Add input validation to the divide function"
-
-# Ask the agent to run commands
-kilo run --auto "Run the tests and tell me which ones fail"
-
-# Ask the agent to search for information
-kilo run --auto "Search for best practices for Express.js error handling"
-
-# Multi-step tasks
-kilo run --auto "1. Read the bug report 2. Find the cause 3. Fix it 4. Run tests"
+# Useful patterns:
+kilo run --auto "Read this file and explain what it does"
+kilo run --auto "Find all bugs in this project"
+kilo run --auto "Fix the bug in src/index.js"
+kilo run --auto "Write a test for the PUT endpoint"
+kilo run --auto "Add status filtering to GET /api/tasks"
 ```
 
 ## Prompt Tips
 
-✅ **Good prompts:**
+**Good prompts:**
 - "Read FILE and find all security issues"
-- "Refactor this function to use async/await"
+- "Refactor this function to handle errors properly"
 - "Write tests for the validateInput function"
 - "Compare these two approaches and recommend one"
 
-❌ **Vague prompts:**
+**Vague prompts (avoid these):**
 - "Fix the code"
 - "Make it better"
 - "What do you think?"
@@ -50,15 +44,22 @@ kilo run --auto "1. Read the bug report 2. Find the cause 3. Fix it 4. Run tests
 4. **Validate** — Test the result
 5. **Review** — Check the output yourself
 
-## Keyboard Shortcuts (Interactive Mode)
+## Team Roles
+
+| Role | Responsibility |
+|---|---|
+| Driver | Types commands into the terminal |
+| Navigator | Decides what to ask next |
+| Scribe | Notes interesting findings |
+| Validator | Checks if output makes sense |
+| Presenter | Demos the result to the group |
+
+## Keyboard Shortcuts
 
 - `Ctrl+C` — Interrupt the agent
 - `Ctrl+D` — Exit
-- `↑/↓` — Browse command history
+- `Up/Down arrows` — Browse command history
 
-## Getting Help
+## Need Help?
 
-```bash
-kilo --help
-kilo run --help
-```
+Raise your hand — coaches are circulating!

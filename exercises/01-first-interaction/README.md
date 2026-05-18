@@ -1,64 +1,81 @@
-# Exercise 1: Your First Agent Interaction
+# Exercise 1: Talk to Your First Agent
 
-**Time:** 30 minutes  
-**Mode:** Individual or pair
+**Time:** 60 minutes  
+**Mode:** Teams of 5, one laptop per team  
+**Facilitator-led**
 
 ## Objective
 
-Get comfortable talking to an AI agent. Send a task, review the output, and iterate.
+Everyone interacts with an AI agent for the first time. First "aha moment" — seeing an agent *understand* and *act*.
 
-## What You'll Do
+## Setup
 
-1. Open your terminal
-2. Run the `kilo` CLI to interact with your pre-configured agent
-3. Ask it to analyze a sample project
-4. Refine your prompt based on the result
+- Team lead opens laptop and terminal
+- Team gathers around the screen
+- KiloClaw instance is pre-configured and ready
 
-## Steps
+## Part A: Guided Interaction (20 min)
 
-### Step 1: Connect to Your Agent
+The facilitator walks everyone through these commands on the big screen. Each team follows along on their laptop.
 
-Your facilitator will provide:
-- A URL to your KiloClaw instance
-- A session token
-
-In your terminal:
-```bash
-# The kilo CLI is pre-configured on your machine
-kilo
-```
-
-### Step 2: Analyze the Sample Project
-
-Run this command:
+### Command 1: Meet Your Agent
 
 ```bash
-kilo run --auto "Read the files in /workspace/exercises/01-first-interaction/sample-project/ and tell me:
-1. What language is this written in?
-2. What does the program do?
-3. Are there any obvious bugs or issues?
-4. How would you improve it?"
+kilo run --auto "Introduce yourself. What are you, and what can you help with?"
 ```
 
-### Step 3: Review the Output
+*What happens:* The agent describes itself, its capabilities, and its tools.
 
-Read the agent's response. Check:
-- Did it correctly identify the language?
-- Did it find the intentional bug? (there is one!)
-- Were the improvement suggestions reasonable?
-
-### Step 4: Iterate
-
-Now try a follow-up:
+### Command 2: Analyze a Project
 
 ```bash
-kilo run --auto "Fix the bug you found and show me the corrected code"
+kilo run --auto "Read the files in the workspace and tell me:
+1. What is this project?
+2. What language is it written in?
+3. What does it do?"
 ```
 
-Compare the fix with your expectations.
+*What happens:* The agent reads files, understands the code, and summarizes.
 
-## Discussion Questions (for group debrief)
+### Command 3: Find Bugs
 
-1. What surprised you about the interaction?
-2. How did the agent's response compare to what you expected?
-3. What would you use this for in your daily work?
+```bash
+kilo run --auto "Find all bugs and issues in this project. Rank them by severity."
+```
+
+*What happens:* The agent finds the intentional bugs (and maybe some you didn't intend!).
+
+## Part B: Team Mystery Challenge (25 min)
+
+Each team gets a **mystery project** to investigate. The project is already loaded in the workspace.
+
+**Instructions for the team:**
+1. Decide together what you want to know about this project
+2. Ask the agent questions — at least 3 different queries
+3. Discuss: Do you agree with the agent's findings? What did it miss?
+4. Pick one issue and ask the agent to fix it
+
+**Suggested prompts:**
+- "What's the most concerning thing about this code?"
+- "If you were hired to improve this project, what would you do first?"
+- "Explain this codebase like I'm a project manager with no coding experience"
+- "What security issues do you see?"
+- "Write a README for this project"
+
+**Team roles (rotate):**
+- **Driver** — Types commands into the terminal
+- **Navigator** — Decides what to ask next
+- **Scribe** — Notes interesting findings
+- **Validator** — Checks if the agent's output makes sense
+- **Presenter** — Will share findings with the group
+
+## Part C: Group Share (15 min)
+
+The facilitator calls on 2-3 teams:
+- What did your agent find that surprised you?
+- Did it miss anything obvious?
+- What would you use this for at work?
+
+## Key Takeaway
+
+> The agent didn't just autocomplete — it *read*, *understood*, *analyzed*, and *acted*. That's the difference between a chatbot and an agent.

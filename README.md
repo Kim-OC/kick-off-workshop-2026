@@ -1,316 +1,361 @@
 # Ida Infront Kick-Off 2026 — AI Agent Workshop
 
-**6-hour hands-on workshop: Building with AI Agents using OpenClaw & Kilo Code**
+**6-hour hands-on workshop: "Build Your AI Team"**
 
-## Workshop Overview
+> *"Instead of talking about innovation, we're building it."* — Inspired by ASNT's AI Agent Battle
+
+## Quick Facts
 
 | | |
 |---|---|
-| **Duration** | 6 hours (09:00–15:00, with breaks) |
-| **Audience** | Mixed — developers, architects, tech leads, PMs |
-| **Prerequisites** | Basic programming understanding. No prior AI/agent experience required. |
-| **Format** | Live demos + hands-on exercises + group discussion |
-| **Accounts needed** | None. All environments are pre-provisioned. |
+| **Duration** | 6 hours (09:00–15:00) |
+| **Participants** | ~100 people, mixed roles (devs, PMs, finance, HR) |
+| **Format** | 20 teams × 5 people, team leads with laptops |
+| **Setting** | Physical kick-off event |
+| **Accounts needed** | None — pre-provisioned KiloClaw instances per team |
 
-## Learning Objectives
+## Workshop Goals (from Magnus)
 
-By the end of this workshop, participants will be able to:
+1. **It should be fun** — competition, laughter, team spirit
+2. **Meet people from other parts of the company** — cross-functional teams
+3. **"Aha moment" about AI** — see agents *do* things, not just talk
+4. **Take home ideas** — practical use cases for their own work
 
-1. **Explain** what AI agents are and how they differ from chatbots
-2. **Use** Kilo Code (CLI + IDE) to delegate tasks to an AI agent
-3. **Understand** the OpenClaw architecture — how agents connect to tools, memory, and communication channels
-4. **Build** a simple multi-agent workflow for a realistic development task
-5. **Identify** when to use agents vs traditional automation vs human work
-6. **Apply** Agentic Engineering patterns (Research → Plan → Build → Validate)
+---
+
+## Design Inspiration
+
+This workshop draws from proven formats:
+
+| Source | What we borrowed |
+|---|---|
+| **Microsoft Agent Build-A-Thon** | Teams of 2-5, hands-on labs, working demos, showcase session |
+| **ASNT AI Agent Battle** | Competition format, 5-min team demos to judges, pre-event priming |
+| **agents&me (Israel)** | Zero-code barrier, "by minute 45 you have a working agent" |
+| **GitLab AI Hackathon 2026** | AI lowers barrier so non-technical participants contribute meaningfully |
+| **Feet First Events** | Fun elements: game shows, team challenges, creative prompts |
+| **Vistage research** | "Put them in a room, give them real data, require working demos" |
+| **Innovation Mode** | AI enables everyone to participate, not just technologists |
+
+**Key design decision:** This is NOT a lecture. It's a **guided build-athon** with competition elements. Teams build something real, show it off, and leave with ideas.
 
 ---
 
 ## Agenda
 
-### Block 1: Foundations (09:00–10:30) — 90 min
+### 09:00–09:45 | Opening: "This Is Not a Chatbot" (45 min)
 
-#### 09:00–09:30 | Welcome & Introductions
-- Workshop goals and structure
-- Quick poll: "What's your experience with AI coding tools?"
-- Set expectations: this is hands-on, not lecture
+**Goal:** Blow people's minds. Set the tone.
 
-#### 09:30–10:00 | What Is an AI Agent? (Interactive Demo)
-- Chatbot vs Agent: the key difference is **action**
-- Live demo: Magnus asks Kim (his AI assistant) to do something real
-  - Example: "Check my calendar for conflicts next week and draft reschedule emails"
-- The Agent Loop: **Perceive → Think → Act → Observe → Repeat**
-- Key concepts: tools, memory, context, guardrails
+**Flow:**
+1. **Welcome (5 min)** — Workshop goals, team introductions
+2. **Live demo: Kim in action (10 min)** — Magnus talks to Kim (his AI assistant) live on the big screen
+   - Kim checks calendar, finds conflicts, drafts reschedule emails
+   - Kim researches a topic and produces a structured summary
+   - *Key message: "This agent has been running 24/7, with access to tools, files, and memory"*
+3. **What is an AI agent? (15 min)** — Interactive explanation
+   - Chatbot vs Agent: **agents take action**
+   - The Agent Loop: Perceive → Think → Act → Observe → Repeat
+   - Tools, memory, skills, guardrails — explained with real examples
+4. **Team formation & icebreaker (15 min)** — Meet your team
+   - Each team gets a name (AI-generated, using a fun prompt)
+   - Quick round: "What's one task you wish you could delegate to an AI?"
 
-#### 10:00–10:30 | Exercise 1: Your First Agent Interaction 🛠️
-- Participants receive a pre-configured KiloClaw instance
-- **Task:** Use `kilo` CLI to ask the agent to analyze a sample codebase
-- Steps:
-  1. Connect to assigned instance (URL + token provided)
-  2. Run `kilo run --auto "Summarize this project: what does it do, what language, any issues?"`
-  3. Review the output together
-- **Debrief:** What surprised you? What worked? What felt off?
+### 09:45–10:45 | Exercise 1: "Talk to Your First Agent" (60 min)
 
-*☕ Break 10:30–10:45 (15 min)*
+**Goal:** Everyone interacts with an agent. First "aha moment."
 
----
+**Setup:** Each team lead opens their laptop. The team gathers around. The KiloClaw instance is already running with a pre-loaded workspace.
 
-### Block 2: Understanding the Platform (10:45–12:00) — 75 min
+**Flow:**
+1. **Guided interaction (20 min)** — Facilitator walks everyone through:
+   - "Ask the agent to analyze this codebase"
+   - "Ask it to find bugs"
+   - "Ask it to explain what it found"
+   - Teams watch together, discuss the output
+2. **Team challenge (25 min)** — Each team gets a **mystery project** to investigate:
+   - The agent reads the code, finds issues, suggests improvements
+   - Teams discuss: "Do we agree with the agent? What did it miss?"
+   - *This is where the fun starts — teams debate the agent's findings*
+3. **Group share (15 min)** — 2-3 teams share what they discovered
+   - "What surprised you?"
+   - "Did the agent find things you didn't expect?"
 
-#### 10:45–11:15 | OpenClaw Architecture Deep-Dive
-- **The big picture:** How OpenClaw connects AI models to the real world
-- Architecture walkthrough:
-  ```
-  Human (Slack/Telegram/Discord/CLI)
-    ↓
-  Gateway (OpenClaw)
-    ↓
-  Agent Session (context + memory + tools)
-    ↓
-  Tools: web search, file system, browser, GitHub, calendar, MCP servers
-    ↓
-  LLM (model: Claude, GPT, etc.)
-  ```
-- **Key concepts:**
-  - Sessions: main vs isolated vs sub-agent
-  - Memory: MEMORY.md, daily files, skill context
-  - Skills: reusable capability packages (SKILL.md pattern)
-  - Cron jobs: scheduled autonomous work
-  - Security: sandbox, approval flows, tool policies
+*☕ Break 10:45–11:00 (15 min)*
 
-#### 11:15–11:45 | Exercise 2: Exploring an Agent's Workspace 🛠️
-- **Task:** Investigate a pre-loaded project workspace
-- Participants explore:
-  1. Read the agent's MEMORY.md — what does it know?
-  2. Check the skills installed — what can it do?
-  3. Ask the agent: "What files are in the workspace?" and "What skills do you have?"
-  4. Ask it to run a command: `git log --oneline -5`
-- **Goal:** Understand the agent's "world" — files, memory, tools
+### 11:00–11:45 | Understanding the Platform (45 min)
 
-#### 11:45–12:00 | Group Discussion
-- What did you discover?
-- How is this different from just using ChatGPT?
-- What use cases come to mind for your daily work?
+**Goal:** Demystify how agents work. Connect the magic to engineering.
+
+**Flow:**
+1. **Architecture walkthrough (15 min)** — Visual, not technical:
+   ```
+   Human → Gateway → Agent Session → Tools (files, web, git, calendar) → AI Model
+   ```
+   - What's in the agent's "brain" (memory, skills, context)
+   - What tools it has access to (and what it can't do)
+   - Security & guardrails (important for enterprise audience)
+2. **Live demo: Agent autonomy (10 min)** — Show an agent doing multi-step work:
+   - "Research this topic, write a summary, save it to a file, and commit to git"
+   - Watch the agent think, act, and produce output
+3. **Interactive Q&A (20 min)** — Open floor
+   - Pre-seeded questions if needed: "Can it send emails?" "Does it remember things?" "What if it makes a mistake?"
+
+### 11:45–12:00 | Introduce the Team Challenge (15 min)
+
+**Goal:** Set up the afternoon build session. Build anticipation.
+
+**Flow:**
+1. **The Challenge briefing** — Announce the team build competition
+2. **Rules explained:**
+   - Teams have ~2 hours to build something with their agent
+   - Choose from **3 challenge tracks** (see below)
+   - Each team presents a 3-minute demo at 14:15
+   - Judges score on: creativity, usefulness, teamwork, "wow factor"
+3. **Track selection** — Each team picks their challenge
+4. **Planning time** — Teams discuss approach before the clock starts
 
 *🍽️ Lunch 12:00–13:00 (60 min)*
 
----
+### 13:00–14:15 | Exercise 2: Team Build Challenge (75 min)
 
-### Block 3: Building with Agents (13:00–14:15) — 75 min
+**Goal:** Teams build something real with agents. Maximum "aha moments."
 
-#### 13:00–13:30 | Agentic Engineering Patterns
-- The 8-pattern lifecycle (from Ida Infront's own framework):
-  1. **Research** — gather context before acting
-  2. **Plan** — break work into actionable steps
-  3. **Build** — execute with tool use
-  4. **Validate** — test the output
-  5. **Peer Review** — human or agent review
-  6. **Deploy** — ship it
-  7. **Operate** — monitor and maintain
-  8. **Retire** — know when to sunset
-- Anti-patterns to avoid (from real workshop data):
-  - LLM self-validation
-  - Skipping research
-  - No prompt review
-  - No cost tracking
+**Challenge Tracks (teams choose one):**
 
-#### 13:30–14:15 | Exercise 3: Build a Feature with an Agent 🛠️
-- **Scenario:** A small bug fix + feature request in a sample application
-- Pre-loaded repo: a simple web app with a known issue
-- **Task (in pairs):**
-  1. Use `kilo run --auto` to investigate the bug
-  2. Ask the agent to propose a fix (Plan pattern)
-  3. Have the agent implement the fix (Build pattern)
-  4. Verify the fix works (Validate pattern)
-  5. Write a commit message and commit
-- **Deliverable:** A working fix with a clean git history
+#### Track A: "Fix Our App" 🐛
+A web application with bugs and missing features. Use the agent to:
+- Find and fix bugs
+- Add a new feature
+- Write tests
+- *Best for: developer-heavy teams*
 
-*☕ Break 14:15–14:30 (15 min)*
+#### Track B: "Build a Workflow Agent" 🤖
+Design an agent that automates a real work process:
+- Examples: expense report assistant, meeting prep agent, onboarding helper
+- Teams describe the workflow, the agent builds the logic
+- *Best for: mixed teams with domain experts*
 
----
+#### Track C: "AI Solves Our Problem" 💡
+Identify a real problem from your department and use the agent to:
+- Research solutions
+- Design a prototype
+- Present a business case
+- *Best for: PM, finance, HR-heavy teams*
 
-### Block 4: Multi-Agent Systems & Real-World Application (14:30–15:00) — 45 min
+**During the build:**
+- **Coaches circulate** — 3-4 facilitators walk around helping teams
+- **Progress check-ins** — At 30 min and 60 min, facilitator announces time remaining
+- **Agent does the heavy lifting** — Team members contribute by:
+  - Domain expert: describes the problem and validates solutions
+  - Tech-savvy person: drives the laptop, interacts with the agent
+  - Others: brainstorm, test outputs, prepare the demo
 
-#### 14:30–14:45 | Multi-Agent Architectures
-- Single agent → multi-agent: when and why
-- Patterns:
-  - **Parallel fan-out:** multiple agents research simultaneously
-  - **Specialist roles:** researcher, coder, reviewer
-  - **Guardian pattern:** one agent checks another's work
-- Live demo: Kim's trading agent (market_analyst → news_sentiment → portfolio_manager)
-- Real example from production: AddNode Agent AI Challenge
+### 14:15–14:45 | Team Demos & Judging (30 min)
 
-#### 14:45–15:00 | Wrap-Up & Next Steps
-- What we covered
-- Key takeaways
-- **Getting started on Monday:**
-  - How to request your own KiloClaw instance
-  - GitHub integration setup (5 min)
-  - First things to try
-- Feedback form
-- Q&A
+**Goal:** Show off work. Celebrate. Learn from each other.
+
+**Flow:**
+1. **Each team gets 3 minutes** — Demo what they built
+2. **Judges score** on 4 criteria (1-5 points each):
+   - 🎨 **Creativity** — Did they think outside the box?
+   - 💼 **Usefulness** — Could this actually help someone at work?
+   - 🤝 **Teamwork** — Did everyone contribute?
+   - ✨ **Wow factor** — Did it make people go "whoa"?
+3. **Prizes** — Fun categories:
+   - 🏆 **Best Overall** — Highest score
+   - 😂 **Most Fun** — Made everyone laugh
+   - 💡 **Most Useful** — Could be shipped tomorrow
+   - 🌟 **Best Cross-Team Collaboration** — HR + devs + finance working together
+
+### 14:45–15:00 | Wrap-Up & Next Steps (15 min)
+
+**Goal:** Cement learnings. Point to Monday morning.
+
+**Flow:**
+1. **What we learned** — Key takeaways from the day
+2. **Your AI journey starts Monday** — How to get your own KiloClaw instance
+3. **Feedback** — Quick survey (QR code on screen)
+4. **Group photo** — With all the teams and their creations
 
 ---
 
 ## Preparation Checklist
 
-### 4 Weeks Before
-- [ ] Confirm participant count and room/tech setup
-- [ ] Order/provision KiloClaw instances (1 per participant or 1 per pair)
+### 8 Weeks Before (July)
+- [ ] Confirm participant count and room setup (large room, good WiFi, projection)
+- [ ] Designate 20 team leads (one per team) — they bring laptops
+- [ ] Order/provision 20 KiloClaw instances (one per team)
 - [ ] Create GitHub organization for the workshop
-- [ ] Prepare sample repositories
+- [ ] Set up challenge materials (sample apps, workflow templates)
+
+### 4 Weeks Before (August)
+- [ ] Send pre-workshop communication to all participants:
+  - What to expect (fun, hands-on, no prep needed)
+  - Team assignments (deliberately cross-functional)
+  - "Bring your curiosity, not your laptop" (except team leads)
+- [ ] Send team lead instructions:
+  - Bring laptop with terminal access
+  - Pre-workshop setup video (10 min) — install nothing, just bookmark the instance URL
+- [ ] Test all KiloClaw instances end-to-end
+- [ ] Recruit 3-4 judges (mix of leadership + technical)
+- [ ] Prepare prize categories and physical prizes
 
 ### 2 Weeks Before
-- [ ] Send participant pre-communication (what to expect, no prep needed)
-- [ ] Test all KiloClaw instances end-to-end
-- [ ] Prepare exercise materials and solution keys
-- [ ] Create feedback form
+- [ ] Final instance check: all 20 instances responding, tokens valid
+- [ ] Load challenge materials into each instance workspace
+- [ ] Create facilitator guide and timing cards
+- [ ] Prepare printed materials:
+  - Quick reference cards (one per team)
+  - Team scorecards (for judges)
+  - Feedback form QR code
+- [ ] Dry run the full workshop with a test team
 
 ### 1 Week Before
-- [ ] Final instance check: all instances responding, tokens valid
-- [ ] Load sample repos into each instance workspace
-- [ ] Print/hand out quick-reference cards
-- [ ] Dry run the full workshop with a colleague
+- [ ] Verify venue: internet, projection, sound, seating (teams of 5 around tables)
+- [ ] Confirm all instance URLs and access tokens
+- [ ] Send reminder to team leads with setup instructions
+- [ ] Prepare backup plan: offline instances if WiFi fails
+- [ ] Print all materials
 
 ### Day Before
-- [ ] Verify internet connectivity in workshop room
-- [ ] Test projection/screen sharing
-- [ ] Confirm all instance URLs and access tokens
-- [ ] Prepare backup plan (local instances if network fails)
+- [ ] Final tech check: all instances, projection, WiFi load test
+- [ ] Charge backup hotspots
+- [ ] Prepare welcome slide with team assignments
+- [ ] Set up judging criteria and score sheets
 
 ---
 
-## Technical Setup Details
+## Technical Setup
 
-### KiloClaw Instances
-
-Each participant (or pair) gets a pre-configured KiloClaw instance with:
+### KiloClaw Instances (20 total)
 
 | Component | Details |
 |---|---|
 | **Platform** | KiloClaw (OpenClaw-based) on Fly.io |
 | **Model** | Claude (balanced tier) |
-| **CLI** | `kilo` (Kilo Code CLI, pre-installed) |
-| **Access** | Web URL + HMAC-authenticated session token |
-| **Channels** | CLI only for workshop (no Slack/Telegram needed) |
-| **Sandbox** | Isolated workspace with pre-loaded exercises |
+| **Access** | Web URL + session token (pre-configured) |
+| **Channels** | CLI only for workshop |
+| **Workspace** | Pre-loaded with exercises, sample projects, challenge materials |
+| **GitHub** | Bot token pre-configured (participants need NO personal GitHub account) |
 
-**Provisioning steps:**
-1. Create KiloClaw instance via Kilo dashboard or CLI
-2. Configure agent profile with workshop-specific SOUL.md
-3. Set up sandbox workspace with exercise files
-4. Generate access token (valid for workshop duration)
-5. Document URL + token for each participant
+### Instance Provisioning
 
-### GitHub Integration
+```
+20 instances × 1 per team
+├── Pre-configured agent profile (workshop SOUL.md)
+├── Pre-loaded workspace with:
+│   ├── Exercise 1: mystery project to analyze
+│   ├── Exercise 2 Track A: buggy web app + feature request
+│   ├── Exercise 2 Track B: workflow agent templates
+│   ├── Exercise 2 Track C: problem-solving framework
+│   ├── Quick reference card
+│   └── Challenge instructions
+└── Session token (valid for workshop day only)
+```
 
-A dedicated GitHub organization is created for the workshop:
+### Why No Personal Accounts Needed
 
-| Item | Details |
-|---|---|
-| **Org** | `ida-infront-workshop-2026` (or similar) |
-| **Repos** | Pre-created template repos for each exercise |
-| **Access** | Workshop bot token (read/write to all exercise repos) |
-| **Participant accounts** | NOT required — the agent's bot token handles all git operations |
-
-**Why no personal GitHub accounts needed:**
-- The KiloClaw instance has its own GitHub token
+- Each KiloClaw instance has its own GitHub token
 - All git operations happen through the agent
 - Participants interact via the agent's CLI interface
-- Results are committed to shared workshop repos (readable by all)
+- Results are committed to shared workshop repos
+- **Zero friction** — team leads just open a URL and start
 
-**Repos to pre-create:**
-1. `exercise-1-hello-agent` — simple project for first interaction
-2. `exercise-2-workspace-explorer` — project with memory, skills, files to explore
-3. `exercise-3-feature-build` — web app with known bug + feature request
-4. `workshop-solutions` — where participants' outputs land
+### WiFi Requirements
 
-### Pre-Loaded Workspace Content
-
-Each instance workspace contains:
-
-```
-/root/.openclaw/workspace/
-├── SOUL.md                    # Agent personality (workshop version)
-├── AGENTS.md                  # Workshop-specific instructions
-├── MEMORY.md                  # Pre-seeded with workshop context
-├── exercises/
-│   ├── 01-first-interaction/
-│   │   ├── README.md          # Exercise instructions
-│   │   └── sample-project/    # Code to analyze
-│   ├── 02-workspace-explorer/
-│   │   ├── README.md
-│   │   └── mystery-project/   # Project to investigate
-│   └── 03-feature-build/
-│       ├── README.md
-│       └── webapp/            # Web app with bug + feature request
-├── quick-reference.md         # CLI commands cheat sheet
-└── feedback-link.txt          # URL to feedback form
-```
-
-### Quick Reference Card (for participants)
-
-```
-Essential Kilo CLI Commands
-═══════════════════════════════════════════════════
-
-Interactive mode:
-  kilo                          # Start interactive chat
-
-Autonomous mode (one-shot):
-  kilo run --auto "your task"   # Agent does the work, returns result
-
-Useful patterns:
-  kilo run --auto "Read FILE and explain what it does"
-  kilo run --auto "List all files in the workspace"
-  kilo run --auto "Fix the bug in webapp/src/app.js"
-
-Tips:
-  • Be specific about what you want
-  • Ask the agent to explain its reasoning
-  • If something goes wrong, ask "what happened?"
-═══════════════════════════════════════════════════
-```
+- **20 concurrent CLI sessions** (lightweight, low bandwidth)
+- **Projection** for main demos
+- **Backup:** 2 mobile hotspots for emergency access
 
 ---
 
-## Presenter Notes
+## Challenge Materials
 
-### Live Demo Script (09:30 section)
+### Track A: "Fix Our App"
 
-**Setup:** Magnus's real KiloClaw instance, Slack channel visible on screen
+Pre-loaded: A simple task tracker API (Node.js/Express) with:
+- 3 known bugs (null handling, missing validation, race condition)
+- 2 feature requests (status filtering, pagination)
+- Basic test suite (some tests pass, some fail)
 
-**Demo flow:**
-1. Show Magnus asking Kim a real question in Slack
-2. Show Kim's response (research + action)
-3. Show Kim's memory files — what it remembers about Magnus
-4. Show the architecture diagram — connect what they just saw to the technical layer
+**Teams use the agent to:** find bugs, fix them, add features, run tests, commit.
 
-**Key talking points:**
-- "This isn't a chatbot — it has access to tools, files, calendar"
-- "It remembers things between conversations"
-- "It can act on your behalf (with approval)"
-- "This is running 24/7, not just when you talk to it"
+### Track B: "Build a Workflow Agent"
 
-### Exercise Facilitation Tips
+Template: A workflow description framework where teams:
+1. Describe a real work process (e.g., "prepare for customer meetings")
+2. Ask the agent to design an automation
+3. The agent creates prompts, templates, or scripts
+4. Test it with real data
 
-**Exercise 1:** Keep it light. The goal is "wow, it understood me" not perfection.
-**Exercise 2:** Encourage exploration. There's no "right answer" — curiosity wins.
-**Exercise 3:** Walk around. Pairs will get stuck at different points. Have solution hints ready.
+**Teams use the agent to:** design, prototype, and test a workflow automation.
+
+### Track C: "AI Solves Our Problem"
+
+Framework: A structured problem-solving approach where teams:
+1. Identify a real pain point from their department
+2. Use the agent to research how others have solved it
+3. Design a solution concept
+4. Prepare a 3-minute pitch
+
+**Teams use the agent to:** research, analyze, and present a solution concept.
+
+---
+
+## Facilitator Guide
+
+### Opening Demo Script
+
+**Magnus + Kim live on screen:**
+1. Magnus asks Kim: "What's on my calendar this week?"
+2. Kim responds with schedule, highlights conflicts
+3. Magnus: "Draft an email to reschedule the Tuesday 2pm meeting"
+4. Kim drafts the email, Magnus reviews and approves
+5. *Pause for effect*: "This has been running on its own for months."
+
+### Timing Calls
+
+| Time | Call |
+|---|---|
+| 09:45 | "Exercise 1 starts now — 60 minutes on the clock!" |
+| 10:15 | "25 minutes left — make sure everyone has interacted with the agent" |
+| 10:30 | "15 minutes left — start discussing your findings" |
+| 10:45 | "Break time! See you at 11:00" |
+| 13:00 | "Team Challenge starts — 75 minutes to build something amazing!" |
+| 13:30 | "45 minutes remaining — are you on track for a demo?" |
+| 14:00 | "15 minutes left — finalize your demo!" |
+| 14:15 | "Time's up! Demo session starts now" |
 
 ### Common Issues & Responses
 
 | Issue | Response |
 |---|---|
-| "It's too slow" | Explain: thinking time = quality. Show the difference between fast and thorough |
-| "It made a mistake" | Great teaching moment! Discuss agent limitations and validation |
-| "I don't know what to ask" | Provide prompt starter cards |
-| "This is just autocomplete" | Show the agent loop — it reads, thinks, acts, checks |
+| "Agent is slow" | "It's thinking, not stalling. Good agents take time to produce quality work." |
+| "It made a mistake" | "Great! Now you know — always validate agent output. That's a key lesson." |
+| "We don't know what to ask" | "Start with: 'Read this file and tell me what it does.' Build from there." |
+| "This is just autocomplete" | "Watch the agent loop — it reads, thinks, acts, checks. That's not autocomplete." |
+| "WiFi is slow" | "Switch to backup hotspot. Instance URLs are on your quick reference card." |
 
 ---
 
 ## Post-Workshop Follow-Up
 
-1. **Day after:** Send thank-you email with resources + recording (if applicable)
-2. **Week after:** Share "top 5 things participants built"
-3. **Month after:** Check-in survey — who's still using agents? What's blocking others?
-4. **Quarter after:** Measure adoption metrics — instances created, tasks delegated, time saved
+| When | Action |
+|---|---|
+| **Day after** | Thank-you email with resources, photos, winning demos |
+| **Week after** | "Top 10 things teams built" — internal blog post |
+| **Month after** | Survey: who's using agents now? What's blocking others? |
+| **Quarter after** | Adoption metrics: instances created, tasks delegated, time saved |
+
+---
+
+## Budget Items
+
+| Item | Est. Cost | Notes |
+|---|---|---|
+| 20 KiloClaw instances | TBD | Fly.io hosting, 1 day + setup |
+| Prizes | ~5,000 SEK | Fun categories, physical prizes |
+| Printed materials | ~2,000 SEK | Quick refs, scorecards, posters |
+| Backup WiFi | ~1,000 SEK | 2 mobile hotspots |
+| **Total** | **~8,000 SEK + hosting** | |
